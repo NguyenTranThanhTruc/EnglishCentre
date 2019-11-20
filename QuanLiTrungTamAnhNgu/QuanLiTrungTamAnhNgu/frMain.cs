@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using DevExpress.XtraSplashScreen;
 
 namespace QuanLiTrungTamAnhNgu
 {
@@ -17,6 +18,19 @@ namespace QuanLiTrungTamAnhNgu
         {
             InitializeComponent();
         }
-      
+        private Form CheckFormExist(Type fType)
+        {
+            foreach (Form f in MdiChildren)
+            {
+                if (f.GetType() == fType)
+                    return f;
+            }
+            return null;
+        }
+
+        private void btnDangNhap_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+           
+        }
     }
 }

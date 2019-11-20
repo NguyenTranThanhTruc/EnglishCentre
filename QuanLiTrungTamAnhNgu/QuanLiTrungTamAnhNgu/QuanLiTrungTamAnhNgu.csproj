@@ -59,8 +59,16 @@
     <Reference Include="DevExpress.XtraReports.v19.1, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraReports.v19.1.Extensions, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraRichEdit.v19.1, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v19.1, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v19.1.Core, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraTreeList.v19.1, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraVerticalGrid.v19.1, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -68,6 +76,8 @@
     <Reference Include="System.Data.OracleClient" />
     <Reference Include="System.Design" />
     <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -79,10 +89,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EnglishCenterDataSet.Designer.cs">
+    <Compile Include="ChuongTrinhKhuyenMai.cs">
+      <DependentUpon>EnglishCenter.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EnglishCenter.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>EnglishCenterDataSet.xsd</DependentUpon>
+      <DependentUpon>EnglishCenter.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EnglishCenter.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EnglishCenter.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EnglishCenter.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EnglishCenter.edmx</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -90,11 +113,41 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="frChuongTrinhKhuyenMai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frChuongTrinhKhuyenMai.Designer.cs">
+      <DependentUpon>frChuongTrinhKhuyenMai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frDangKy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frDangKy.Designer.cs">
+      <DependentUpon>frDangKy.cs</DependentUpon>
+    </Compile>
     <Compile Include="frDangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frDangNhap.Designer.cs">
       <DependentUpon>frDangNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frKhoaHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frKhoaHoc.Designer.cs">
+      <DependentUpon>frKhoaHoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frLevel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frLevel.Designer.cs">
+      <DependentUpon>frLevel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frLopHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frLopHoc.Designer.cs">
+      <DependentUpon>frLopHoc.cs</DependentUpon>
     </Compile>
     <Compile Include="frMain.cs">
       <SubType>Form</SubType>
@@ -102,22 +155,110 @@
     <Compile Include="frMain.Designer.cs">
       <DependentUpon>frMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Admin\frNhanVien.cs">
+    <Compile Include="frHocVien.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\Admin\frNhanVien.Designer.cs">
+    <Compile Include="frHocVien.Designer.cs">
+      <DependentUpon>frHocVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frNhanVien.Designer.cs">
       <DependentUpon>frNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frNhomTaiLieu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frNhomTaiLieu.Designer.cs">
+      <DependentUpon>frNhomTaiLieu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frPhieuThu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frPhieuThu.Designer.cs">
+      <DependentUpon>frPhieuThu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frThoiGianLopHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frThoiGianLopHoc.Designer.cs">
+      <DependentUpon>frThoiGianLopHoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HocVien.cs">
+      <DependentUpon>EnglishCenter.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhoaHoc.cs">
+      <DependentUpon>EnglishCenter.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Level.cs">
+      <DependentUpon>EnglishCenter.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LopHoc.cs">
+      <DependentUpon>EnglishCenter.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien.cs">
+      <DependentUpon>EnglishCenter.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NhomTaiLieu.cs">
+      <DependentUpon>EnglishCenter.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PhanQuyen.cs">
+      <DependentUpon>EnglishCenter.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PhieuThu.cs">
+      <DependentUpon>EnglishCenter.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="queryHocVien.cs" />
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>EnglishCenter.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TaikhoanGiaoVien.cs">
+      <DependentUpon>EnglishCenter.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TaiKhoanHocVien.cs">
+      <DependentUpon>EnglishCenter.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ThoiGianLopHoc.cs">
+      <DependentUpon>EnglishCenter.tt</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="frChuongTrinhKhuyenMai.resx">
+      <DependentUpon>frChuongTrinhKhuyenMai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frDangKy.resx">
+      <DependentUpon>frDangKy.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frDangNhap.resx">
       <DependentUpon>frDangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frKhoaHoc.resx">
+      <DependentUpon>frKhoaHoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frLevel.resx">
+      <DependentUpon>frLevel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frLopHoc.resx">
+      <DependentUpon>frLopHoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frMain.resx">
       <DependentUpon>frMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Admin\frNhanVien.resx">
+    <EmbeddedResource Include="frHocVien.resx">
+      <DependentUpon>frHocVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frNhanVien.resx">
       <DependentUpon>frNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frNhomTaiLieu.resx">
+      <DependentUpon>frNhomTaiLieu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frPhieuThu.resx">
+      <DependentUpon>frPhieuThu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frThoiGianLopHoc.resx">
+      <DependentUpon>frThoiGianLopHoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -129,17 +270,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="EnglishCenterDataSet.xsc">
-      <DependentUpon>EnglishCenterDataSet.xsd</DependentUpon>
+    <EntityDeploy Include="EnglishCenter.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EnglishCenter.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="EnglishCenter.edmx.diagram">
+      <DependentUpon>EnglishCenter.edmx</DependentUpon>
     </None>
-    <None Include="EnglishCenterDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>EnglishCenterDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="EnglishCenterDataSet.xss">
-      <DependentUpon>EnglishCenterDataSet.xsd</DependentUpon>
-    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -153,8 +291,21 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Image\" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="EnglishCenter.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EnglishCenter.edmx</DependentUpon>
+      <LastGenOutput>EnglishCenter.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="EnglishCenter.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EnglishCenter.edmx</DependentUpon>
+      <LastGenOutput>EnglishCenter.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

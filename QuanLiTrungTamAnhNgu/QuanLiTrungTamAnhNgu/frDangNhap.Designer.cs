@@ -41,7 +41,7 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(297, 54);
+            this.labelControl1.Location = new System.Drawing.Point(97, 31);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(144, 17);
             this.labelControl1.TabIndex = 0;
@@ -49,7 +49,7 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(266, 127);
+            this.labelControl2.Location = new System.Drawing.Point(66, 104);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(64, 17);
             this.labelControl2.TabIndex = 1;
@@ -57,7 +57,7 @@
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(266, 174);
+            this.labelControl3.Location = new System.Drawing.Point(66, 151);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(61, 17);
             this.labelControl3.TabIndex = 2;
@@ -65,14 +65,14 @@
             // 
             // txtTaiKhoan
             // 
-            this.txtTaiKhoan.Location = new System.Drawing.Point(346, 124);
+            this.txtTaiKhoan.Location = new System.Drawing.Point(146, 101);
             this.txtTaiKhoan.Name = "txtTaiKhoan";
             this.txtTaiKhoan.Size = new System.Drawing.Size(125, 22);
             this.txtTaiKhoan.TabIndex = 3;
             // 
             // txtMatKhau
             // 
-            this.txtMatKhau.Location = new System.Drawing.Point(346, 169);
+            this.txtMatKhau.Location = new System.Drawing.Point(146, 146);
             this.txtMatKhau.Name = "txtMatKhau";
             this.txtMatKhau.Size = new System.Drawing.Size(125, 22);
             this.txtMatKhau.TabIndex = 4;
@@ -80,7 +80,7 @@
             // 
             // bttDangNhap
             // 
-            this.bttDangNhap.Location = new System.Drawing.Point(222, 245);
+            this.bttDangNhap.Location = new System.Drawing.Point(22, 222);
             this.bttDangNhap.Name = "bttDangNhap";
             this.bttDangNhap.Size = new System.Drawing.Size(94, 29);
             this.bttDangNhap.TabIndex = 5;
@@ -88,7 +88,7 @@
             // 
             // bttThoat
             // 
-            this.bttThoat.Location = new System.Drawing.Point(435, 245);
+            this.bttThoat.Location = new System.Drawing.Point(235, 222);
             this.bttThoat.Name = "bttThoat";
             this.bttThoat.Size = new System.Drawing.Size(94, 29);
             this.bttThoat.TabIndex = 6;
@@ -98,7 +98,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(643, 332);
+            this.ClientSize = new System.Drawing.Size(396, 332);
             this.Controls.Add(this.bttThoat);
             this.Controls.Add(this.bttDangNhap);
             this.Controls.Add(this.txtMatKhau);
