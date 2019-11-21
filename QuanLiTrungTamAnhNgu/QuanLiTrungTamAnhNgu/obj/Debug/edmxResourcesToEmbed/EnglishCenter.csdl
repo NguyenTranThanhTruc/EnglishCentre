@@ -33,11 +33,8 @@
     <Property Name="ID_KH" Type="Int32" Nullable="false" />
     <Property Name="Ma_KH" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Ten_KH" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="SoBuoiHoc" Type="Int32" Nullable="false" />
     <Property Name="MoTa" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="ID_Level" Type="Int32" Nullable="false" />
     <NavigationProperty Name="ChuongTrinhKhuyenMais" Relationship="Self.fk_CTKM_KH" FromRole="KhoaHoc" ToRole="ChuongTrinhKhuyenMai" />
-    <NavigationProperty Name="Level" Relationship="Self.fk_KH_Level" FromRole="KhoaHoc" ToRole="Levels" />
     <NavigationProperty Name="LopHocs" Relationship="Self.fk_LH_KH" FromRole="KhoaHoc" ToRole="LopHoc" />
     <NavigationProperty Name="NhomTaiLieux" Relationship="Self.fk_NTL_KH" FromRole="KhoaHoc" ToRole="NhomTaiLieu" />
   </EntityType>
@@ -48,6 +45,7 @@
     <Property Name="ID_Level" Type="Int32" Nullable="false" />
     <Property Name="MoTa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="KhoaHocs" Relationship="Self.fk_KH_Level" FromRole="Levels" ToRole="KhoaHoc" />
+    <NavigationProperty Name="LopHocs" Relationship="EnglishCenterModel.fk_LH_LV" FromRole="Level" ToRole="LopHoc" />
   </EntityType>
   <EntityType Name="LopHoc">
     <Key>
@@ -65,21 +63,25 @@
     <NavigationProperty Name="NhanVien" Relationship="Self.fk_LH_NV" FromRole="LopHoc" ToRole="NhanVien" />
     <NavigationProperty Name="PhieuThus" Relationship="Self.fk_PT_LH" FromRole="LopHoc" ToRole="PhieuThu" />
     <NavigationProperty Name="ThoiGianLopHoc" Relationship="Self.fk_TG_LH" FromRole="LopHoc" ToRole="ThoiGianLopHoc" />
+    <Property Name="ID_Level" Type="Int32" Nullable="false" />
+    <Property Name="SoBuoiHoc" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Level" Relationship="EnglishCenterModel.fk_LH_LV" FromRole="LopHoc" ToRole="Level" />
   </EntityType>
   <EntityType Name="NhanVien">
     <Key>
       <PropertyRef Name="ID_NV" />
     </Key>
     <Property Name="ID_NV" Type="Int32" Nullable="false" />
-    <Property Name="Ma_GV" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Ma_GV" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="HoTen_NV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="ChucVu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="SDT_NV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="CMND" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CMND" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="LopHocs" Relationship="Self.fk_LH_NV" FromRole="NhanVien" ToRole="LopHoc" />
     <NavigationProperty Name="PhieuThus" Relationship="Self.fk_PT_NV" FromRole="NhanVien" ToRole="PhieuThu" />
     <NavigationProperty Name="TaikhoanGiaoViens" Relationship="Self.fk_TKGV_GV" FromRole="NhanVien" ToRole="TaikhoanGiaoVien" />
+    <Property Name="Birthday" Type="DateTime" Nullable="false" Precision="3" />
   </EntityType>
   <EntityType Name="NhomTaiLieu">
     <Key>
@@ -344,5 +346,21 @@
       <End Role="NhanVien" EntitySet="NhanViens" />
       <End Role="TaikhoanGiaoVien" EntitySet="TaikhoanGiaoViens" />
     </AssociationSet>
+    <AssociationSet Name="fk_LH_LV" Association="EnglishCenterModel.fk_LH_LV">
+      <End Role="Level" EntitySet="Levels" />
+      <End Role="LopHoc" EntitySet="LopHocs" />
+    </AssociationSet>
   </EntityContainer>
+  <Association Name="fk_LH_LV">
+    <End Type="EnglishCenterModel.Level" Role="Level" Multiplicity="1" />
+    <End Type="EnglishCenterModel.LopHoc" Role="LopHoc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Level">
+        <PropertyRef Name="ID_Level" />
+      </Principal>
+      <Dependent Role="LopHoc">
+        <PropertyRef Name="ID_Level" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

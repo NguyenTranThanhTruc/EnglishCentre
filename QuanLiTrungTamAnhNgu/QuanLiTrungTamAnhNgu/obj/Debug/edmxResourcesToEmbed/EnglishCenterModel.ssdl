@@ -4,9 +4,9 @@
     <Key>
       <PropertyRef Name="ID_CTKM" />
     </Key>
-    <Property Name="ID_CTKM" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ID_CTKM" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Ten_CTKM" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="ID_KH" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ID_KH" Type="int" Nullable="false" />
     <Property Name="ThoiGianBatDau_CTKM" Type="date" Nullable="false" />
     <Property Name="ThoiGianKetThuc_CTKM" Type="date" Nullable="false" />
     <Property Name="MoTa_CTKM" Type="nvarchar" MaxLength="100" Nullable="false" />
@@ -15,7 +15,8 @@
     <Key>
       <PropertyRef Name="ID_HV" />
     </Key>
-    <Property Name="ID_HV" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ID_HV" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ma_HV" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="HoTen_HV" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="NgaySinh_HV" Type="date" Nullable="false" />
     <Property Name="DiaChi_HV" Type="nvarchar" MaxLength="100" Nullable="false" />
@@ -26,67 +27,75 @@
     <Key>
       <PropertyRef Name="ID_KH" />
     </Key>
-    <Property Name="ID_KH" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="SoBuoiHoc" Type="int" Nullable="false" />
+    <Property Name="ID_KH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ten_KH" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="MoTa" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="ID_Level" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="Levels">
     <Key>
       <PropertyRef Name="ID_Level" />
     </Key>
-    <Property Name="ID_Level" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ID_Level" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="MoTa" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Ten_Level" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="LopHoc">
     <Key>
       <PropertyRef Name="ID_LH" />
     </Key>
-    <Property Name="ID_LH" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ID_LH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ma_LH" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="Ten_LH" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="ThoiGianBatDau_LH" Type="date" Nullable="false" />
     <Property Name="ThoiGianKetThuc_LH" Type="date" Nullable="false" />
-    <Property Name="HocPhi" Type="money" Nullable="false" />
-    <Property Name="ID_GV" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="ID_KH" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="HocPhi" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="ID_GV" Type="int" Nullable="false" />
+    <Property Name="ID_KH" Type="int" Nullable="false" />
+    <Property Name="ID_Level" Type="int" Nullable="false" />
+    <Property Name="SoBuoiHoc" Type="int" Nullable="false" />
+    <Property Name="KhungGioHoc" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="NhanVien">
     <Key>
       <PropertyRef Name="ID_NV" />
     </Key>
-    <Property Name="ID_NV" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ID_NV" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ma_GV" Type="nvarchar" MaxLength="100" />
     <Property Name="HoTen_NV" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="ChucVu" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="SDT_NV" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="CMND" Type="nvarchar" MaxLength="50" />
+    <Property Name="CMND" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Birthday" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="NhomTaiLieu">
     <Key>
       <PropertyRef Name="ID_NTL" />
     </Key>
-    <Property Name="ID_NTL" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ID_NTL" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ma_NTL" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="Ten_NTL" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="ID_KH" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ID_KH" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="PhanQuyen">
     <Key>
       <PropertyRef Name="ID_PhanQuyen" />
     </Key>
-    <Property Name="ID_PhanQuyen" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ID_PhanQuyen" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Ten_PhanQuyen" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="PhieuThu">
     <Key>
       <PropertyRef Name="ID_PT" />
     </Key>
-    <Property Name="ID_PT" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ID_PT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ma_PT" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="NgayThanhToan" Type="date" Nullable="false" />
     <Property Name="PhuongThucThanhToan" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="ID_HV" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="ID_LH" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ID_HV" Type="int" Nullable="false" />
+    <Property Name="ID_LH" Type="int" Nullable="false" />
     <Property Name="SoTien" Type="money" Nullable="false" />
-    <Property Name="ID_NV" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ID_NV" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -102,8 +111,8 @@
     <Key>
       <PropertyRef Name="ID_GV_TK" />
     </Key>
-    <Property Name="ID_GV_TK" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="ID_GV" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ID_GV_TK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_GV" Type="int" Nullable="false" />
     <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="PassWord" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
@@ -111,18 +120,10 @@
     <Key>
       <PropertyRef Name="ID_TKHV" />
     </Key>
-    <Property Name="ID_TKHV" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="ID_HV" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ID_TKHV" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_HV" Type="int" Nullable="false" />
     <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="PassWord" Type="nvarchar" MaxLength="50" Nullable="false" />
-  </EntityType>
-  <EntityType Name="ThoiGianLopHoc">
-    <Key>
-      <PropertyRef Name="ID_LH" />
-    </Key>
-    <Property Name="ID_LH" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="NgayHoc_LH" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="ThoiGianCuaBuoiHoc" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <Association Name="fk_CTKM_KH">
     <End Role="KhoaHoc" Type="Self.KhoaHoc" Multiplicity="1" />
@@ -136,18 +137,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="fk_KH_Level">
-    <End Role="Levels" Type="Self.Levels" Multiplicity="1" />
-    <End Role="KhoaHoc" Type="Self.KhoaHoc" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Levels">
-        <PropertyRef Name="ID_Level" />
-      </Principal>
-      <Dependent Role="KhoaHoc">
-        <PropertyRef Name="ID_Level" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="fk_LH_KH">
     <End Role="KhoaHoc" Type="Self.KhoaHoc" Multiplicity="1" />
     <End Role="LopHoc" Type="Self.LopHoc" Multiplicity="*" />
@@ -157,6 +146,18 @@
       </Principal>
       <Dependent Role="LopHoc">
         <PropertyRef Name="ID_KH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_LH_LV">
+    <End Role="Levels" Type="Self.Levels" Multiplicity="1" />
+    <End Role="LopHoc" Type="Self.LopHoc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Levels">
+        <PropertyRef Name="ID_Level" />
+      </Principal>
+      <Dependent Role="LopHoc">
+        <PropertyRef Name="ID_Level" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -217,18 +218,6 @@
       </Principal>
       <Dependent Role="PhieuThu">
         <PropertyRef Name="ID_NV" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_TG_LH">
-    <End Role="LopHoc" Type="Self.LopHoc" Multiplicity="1" />
-    <End Role="ThoiGianLopHoc" Type="Self.ThoiGianLopHoc" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="LopHoc">
-        <PropertyRef Name="ID_LH" />
-      </Principal>
-      <Dependent Role="ThoiGianLopHoc">
-        <PropertyRef Name="ID_LH" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -300,17 +289,16 @@
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TaikhoanGiaoVien" EntityType="Self.TaikhoanGiaoVien" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TaiKhoanHocVien" EntityType="Self.TaiKhoanHocVien" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="ThoiGianLopHoc" EntityType="Self.ThoiGianLopHoc" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="fk_CTKM_KH" Association="Self.fk_CTKM_KH">
       <End Role="KhoaHoc" EntitySet="KhoaHoc" />
       <End Role="ChuongTrinhKhuyenMai" EntitySet="ChuongTrinhKhuyenMai" />
     </AssociationSet>
-    <AssociationSet Name="fk_KH_Level" Association="Self.fk_KH_Level">
-      <End Role="Levels" EntitySet="Levels" />
-      <End Role="KhoaHoc" EntitySet="KhoaHoc" />
-    </AssociationSet>
     <AssociationSet Name="fk_LH_KH" Association="Self.fk_LH_KH">
       <End Role="KhoaHoc" EntitySet="KhoaHoc" />
+      <End Role="LopHoc" EntitySet="LopHoc" />
+    </AssociationSet>
+    <AssociationSet Name="fk_LH_LV" Association="Self.fk_LH_LV">
+      <End Role="Levels" EntitySet="Levels" />
       <End Role="LopHoc" EntitySet="LopHoc" />
     </AssociationSet>
     <AssociationSet Name="fk_LH_NV" Association="Self.fk_LH_NV">
@@ -332,10 +320,6 @@
     <AssociationSet Name="fk_PT_NV" Association="Self.fk_PT_NV">
       <End Role="NhanVien" EntitySet="NhanVien" />
       <End Role="PhieuThu" EntitySet="PhieuThu" />
-    </AssociationSet>
-    <AssociationSet Name="fk_TG_LH" Association="Self.fk_TG_LH">
-      <End Role="LopHoc" EntitySet="LopHoc" />
-      <End Role="ThoiGianLopHoc" EntitySet="ThoiGianLopHoc" />
     </AssociationSet>
     <AssociationSet Name="fk_TK_HV" Association="Self.fk_TK_HV">
       <End Role="HocVien" EntitySet="HocVien" />

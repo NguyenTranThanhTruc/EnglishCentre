@@ -17,13 +17,14 @@ namespace QuanLiTrungTamAnhNgu
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Level()
         {
-            this.KhoaHocs = new HashSet<KhoaHoc>();
+            this.LopHocs = new HashSet<LopHoc>();
         }
     
         public int ID_Level { get; set; }
         public string MoTa { get; set; }
+        public string Ten_Level { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<KhoaHoc> KhoaHocs { get; set; }
+        public virtual ICollection<LopHoc> LopHocs { get; set; }
     }
 }

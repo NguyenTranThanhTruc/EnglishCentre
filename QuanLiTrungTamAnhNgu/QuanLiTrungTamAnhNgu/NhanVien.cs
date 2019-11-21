@@ -29,6 +29,7 @@ namespace QuanLiTrungTamAnhNgu
         public string Email { get; set; }
         public string SDT_NV { get; set; }
         public string CMND { get; set; }
+        public System.DateTime Birthday { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LopHoc> LopHocs { get; set; }

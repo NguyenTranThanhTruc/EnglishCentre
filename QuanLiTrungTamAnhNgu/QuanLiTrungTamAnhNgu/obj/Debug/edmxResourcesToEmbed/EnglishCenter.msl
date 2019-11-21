@@ -32,9 +32,7 @@
           <ScalarProperty Name="ID_KH" ColumnName="ID_KH" />
           <ScalarProperty Name="Ma_KH" ColumnName="Ma_KH" />
           <ScalarProperty Name="Ten_KH" ColumnName="Ten_KH" />
-          <ScalarProperty Name="SoBuoiHoc" ColumnName="SoBuoiHoc" />
           <ScalarProperty Name="MoTa" ColumnName="MoTa" />
-          <ScalarProperty Name="ID_Level" ColumnName="ID_Level" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -49,6 +47,8 @@
     <EntitySetMapping Name="LopHocs">
       <EntityTypeMapping TypeName="EnglishCenterModel.LopHoc">
         <MappingFragment StoreEntitySet="LopHoc">
+          <ScalarProperty Name="SoBuoiHoc" ColumnName="SoBuoiHoc" />
+          <ScalarProperty Name="ID_Level" ColumnName="ID_Level" />
           <ScalarProperty Name="ID_LH" ColumnName="ID_LH" />
           <ScalarProperty Name="Ma_LH" ColumnName="Ma_LH" />
           <ScalarProperty Name="Ten_LH" ColumnName="Ten_LH" />
@@ -63,6 +63,7 @@
     <EntitySetMapping Name="NhanViens">
       <EntityTypeMapping TypeName="EnglishCenterModel.NhanVien">
         <MappingFragment StoreEntitySet="NhanVien">
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
           <ScalarProperty Name="ID_NV" ColumnName="ID_NV" />
           <ScalarProperty Name="Ma_GV" ColumnName="Ma_GV" />
           <ScalarProperty Name="HoTen_NV" ColumnName="HoTen_NV" />

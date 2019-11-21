@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="EnglishCenterModelStoreContainer" CdmEntityContainer="EnglishCenterEntities">
+  <EntityContainerMapping StorageEntityContainer="EnglishCenterModelStoreContainer" CdmEntityContainer="EnglishCenterDbContext">
     <EntitySetMapping Name="ChuongTrinhKhuyenMais">
       <EntityTypeMapping TypeName="EnglishCenterModel.ChuongTrinhKhuyenMai">
         <MappingFragment StoreEntitySet="ChuongTrinhKhuyenMai">
@@ -17,6 +17,7 @@
       <EntityTypeMapping TypeName="EnglishCenterModel.HocVien">
         <MappingFragment StoreEntitySet="HocVien">
           <ScalarProperty Name="ID_HV" ColumnName="ID_HV" />
+          <ScalarProperty Name="Ma_HV" ColumnName="Ma_HV" />
           <ScalarProperty Name="HoTen_HV" ColumnName="HoTen_HV" />
           <ScalarProperty Name="NgaySinh_HV" ColumnName="NgaySinh_HV" />
           <ScalarProperty Name="DiaChi_HV" ColumnName="DiaChi_HV" />
@@ -29,15 +30,15 @@
       <EntityTypeMapping TypeName="EnglishCenterModel.KhoaHoc">
         <MappingFragment StoreEntitySet="KhoaHoc">
           <ScalarProperty Name="ID_KH" ColumnName="ID_KH" />
-          <ScalarProperty Name="SoBuoiHoc" ColumnName="SoBuoiHoc" />
+          <ScalarProperty Name="Ten_KH" ColumnName="Ten_KH" />
           <ScalarProperty Name="MoTa" ColumnName="MoTa" />
-          <ScalarProperty Name="ID_Level" ColumnName="ID_Level" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Levels">
       <EntityTypeMapping TypeName="EnglishCenterModel.Level">
         <MappingFragment StoreEntitySet="Levels">
+          <ScalarProperty Name="Ten_Level" ColumnName="Ten_Level" />
           <ScalarProperty Name="ID_Level" ColumnName="ID_Level" />
           <ScalarProperty Name="MoTa" ColumnName="MoTa" />
         </MappingFragment>
@@ -46,13 +47,17 @@
     <EntitySetMapping Name="LopHocs">
       <EntityTypeMapping TypeName="EnglishCenterModel.LopHoc">
         <MappingFragment StoreEntitySet="LopHoc">
+          <ScalarProperty Name="KhungGioHoc" ColumnName="KhungGioHoc" />
           <ScalarProperty Name="ID_LH" ColumnName="ID_LH" />
+          <ScalarProperty Name="Ma_LH" ColumnName="Ma_LH" />
           <ScalarProperty Name="Ten_LH" ColumnName="Ten_LH" />
           <ScalarProperty Name="ThoiGianBatDau_LH" ColumnName="ThoiGianBatDau_LH" />
           <ScalarProperty Name="ThoiGianKetThuc_LH" ColumnName="ThoiGianKetThuc_LH" />
           <ScalarProperty Name="HocPhi" ColumnName="HocPhi" />
           <ScalarProperty Name="ID_GV" ColumnName="ID_GV" />
           <ScalarProperty Name="ID_KH" ColumnName="ID_KH" />
+          <ScalarProperty Name="ID_Level" ColumnName="ID_Level" />
+          <ScalarProperty Name="SoBuoiHoc" ColumnName="SoBuoiHoc" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -60,11 +65,13 @@
       <EntityTypeMapping TypeName="EnglishCenterModel.NhanVien">
         <MappingFragment StoreEntitySet="NhanVien">
           <ScalarProperty Name="ID_NV" ColumnName="ID_NV" />
+          <ScalarProperty Name="Ma_GV" ColumnName="Ma_GV" />
           <ScalarProperty Name="HoTen_NV" ColumnName="HoTen_NV" />
           <ScalarProperty Name="ChucVu" ColumnName="ChucVu" />
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="SDT_NV" ColumnName="SDT_NV" />
           <ScalarProperty Name="CMND" ColumnName="CMND" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -72,6 +79,7 @@
       <EntityTypeMapping TypeName="EnglishCenterModel.NhomTaiLieu">
         <MappingFragment StoreEntitySet="NhomTaiLieu">
           <ScalarProperty Name="ID_NTL" ColumnName="ID_NTL" />
+          <ScalarProperty Name="Ma_NTL" ColumnName="Ma_NTL" />
           <ScalarProperty Name="Ten_NTL" ColumnName="Ten_NTL" />
           <ScalarProperty Name="ID_KH" ColumnName="ID_KH" />
         </MappingFragment>
@@ -89,6 +97,7 @@
       <EntityTypeMapping TypeName="EnglishCenterModel.PhieuThu">
         <MappingFragment StoreEntitySet="PhieuThu">
           <ScalarProperty Name="ID_PT" ColumnName="ID_PT" />
+          <ScalarProperty Name="Ma_PT" ColumnName="Ma_PT" />
           <ScalarProperty Name="NgayThanhToan" ColumnName="NgayThanhToan" />
           <ScalarProperty Name="PhuongThucThanhToan" ColumnName="PhuongThucThanhToan" />
           <ScalarProperty Name="ID_HV" ColumnName="ID_HV" />
@@ -126,15 +135,6 @@
           <ScalarProperty Name="ID_HV" ColumnName="ID_HV" />
           <ScalarProperty Name="Username" ColumnName="Username" />
           <ScalarProperty Name="PassWord" ColumnName="PassWord" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="ThoiGianLopHocs">
-      <EntityTypeMapping TypeName="EnglishCenterModel.ThoiGianLopHoc">
-        <MappingFragment StoreEntitySet="ThoiGianLopHoc">
-          <ScalarProperty Name="ID_LH" ColumnName="ID_LH" />
-          <ScalarProperty Name="NgayHoc_LH" ColumnName="NgayHoc_LH" />
-          <ScalarProperty Name="ThoiGianCuaBuoiHoc" ColumnName="ThoiGianCuaBuoiHoc" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

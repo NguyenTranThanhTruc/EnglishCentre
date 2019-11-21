@@ -24,7 +24,7 @@ namespace QuanLiTrungTamAnhNgu
             this.WindowState = FormWindowState.Maximized;
 
         }
-        EnglishCenterEntities2 _db = new EnglishCenterEntities2();
+        EnglishCenterDbContext _db = new EnglishCenterDbContext();
         queryHocVien hocvien = new queryHocVien();
         //Khai bao bien
 
@@ -69,12 +69,47 @@ namespace QuanLiTrungTamAnhNgu
 
         private void bttSuaHV_Click(object sender, EventArgs e)
         {
+            string hoTen = txtHoTenHV.Text;
+            string diaChi = txtDiaChiHV.Text;
+            string email = txtEmailHV.Text;
+            DateTime ngaySinh = dateTimeNgaySinh.Value;
+            string soDienThoai = txtSoDienThoaiHV.Text;
+            if (txtHoTenHV.Text == null ||
+             txtDiaChiHV.Text == null ||
+             txtEmailHV.Text == null ||
+             txtSoDienThoaiHV.Text == null)
+            {
+                MessageBox.Show("Bạn chưa điền đủ thông tin!", "Thêm học viên.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
 
+                DialogResult dialogResult = MessageBox.Show("Bạn muốn sua thong tin học viên này hả?", "Thêm học viên.", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    if (hocvien.updateHocVien(hoTen, ngaySinh, diaChi, email, soDienThoai))
+                    {
+                        MessageBox.Show("Bạn đã sua thành công!", "Thêm học viên.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Nhan Vien chua duoc cap nhat vao");
+                    }
+                    Load_HocVien();
+                 
+
+                }
+            }
         }
 
         private void panelControl1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void bttLHuy_Click(object sender, EventArgs e)
+        {
+            Load_HocVien();
         }
     }
 }

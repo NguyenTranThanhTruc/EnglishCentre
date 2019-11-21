@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3ce33a40c36d43bd93b784239608eb18" Name="Diagram1">
+        <EntityTypeShape EntityType="EnglishCenterModel.ChuongTrinhKhuyenMai" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EnglishCenterModel.HocVien" Width="1.5" PointX="6" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EnglishCenterModel.KhoaHoc" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EnglishCenterModel.Level" Width="1.5" PointX="3.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EnglishCenterModel.LopHoc" Width="1.5" PointX="6" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EnglishCenterModel.NhanVien" Width="1.5" PointX="3.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EnglishCenterModel.NhomTaiLieu" Width="1.5" PointX="3" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EnglishCenterModel.PhanQuyen" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EnglishCenterModel.PhieuThu" Width="1.5" PointX="8.25" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EnglishCenterModel.sysdiagram" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EnglishCenterModel.TaikhoanGiaoVien" Width="1.5" PointX="6" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EnglishCenterModel.TaiKhoanHocVien" Width="1.5" PointX="8.25" PointY="1.25" IsExpanded="true" />
+        <AssociationConnector Association="EnglishCenterModel.fk_CTKM_KH" ManuallyRouted="false" />
+        <AssociationConnector Association="EnglishCenterModel.fk_PT_HV" ManuallyRouted="false" />
+        <AssociationConnector Association="EnglishCenterModel.fk_TK_HV" ManuallyRouted="false" />
+        <AssociationConnector Association="EnglishCenterModel.fk_LH_KH" ManuallyRouted="false" />
+        <AssociationConnector Association="EnglishCenterModel.fk_NTL_KH" ManuallyRouted="false" />
+        <AssociationConnector Association="EnglishCenterModel.fk_LH_LV" ManuallyRouted="false" />
+        <AssociationConnector Association="EnglishCenterModel.fk_LH_NV" ManuallyRouted="false" />
+        <AssociationConnector Association="EnglishCenterModel.fk_PT_LH" ManuallyRouted="false" />
+        <AssociationConnector Association="EnglishCenterModel.fk_PT_NV" ManuallyRouted="false" />
+        <AssociationConnector Association="EnglishCenterModel.fk_TKGV_GV" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

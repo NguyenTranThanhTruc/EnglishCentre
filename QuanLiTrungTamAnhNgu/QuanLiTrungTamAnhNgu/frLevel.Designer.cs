@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frLevel));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.btnRefresh = new DevExpress.XtraEditors.SimpleButton();
             this.txtLevel = new DevExpress.XtraEditors.TextEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.bttLHuy = new DevExpress.XtraEditors.SimpleButton();
@@ -50,6 +51,7 @@
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.btnRefresh);
             this.panelControl1.Controls.Add(this.txtLevel);
             this.panelControl1.Controls.Add(this.labelControl3);
             this.panelControl1.Controls.Add(this.bttLHuy);
@@ -65,9 +67,17 @@
             this.panelControl1.Size = new System.Drawing.Size(422, 461);
             this.panelControl1.TabIndex = 0;
             // 
+            // btnRefresh
+            // 
+            this.btnRefresh.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.ImageOptions.Image")));
+            this.btnRefresh.Location = new System.Drawing.Point(281, 361);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(117, 42);
+            this.btnRefresh.TabIndex = 63;
+            this.btnRefresh.Text = "Refresh";
+            // 
             // txtLevel
             // 
-            this.txtLevel.Enabled = false;
             this.txtLevel.Location = new System.Drawing.Point(127, 92);
             this.txtLevel.Name = "txtLevel";
             this.txtLevel.Size = new System.Drawing.Size(260, 22);
@@ -89,6 +99,7 @@
             this.bttLHuy.Size = new System.Drawing.Size(117, 42);
             this.bttLHuy.TabIndex = 60;
             this.bttLHuy.Text = "Hủy";
+            this.bttLHuy.Click += new System.EventHandler(this.bttLHuy_Click);
             // 
             // bttXoaLv
             // 
@@ -98,6 +109,7 @@
             this.bttXoaLv.Size = new System.Drawing.Size(106, 43);
             this.bttXoaLv.TabIndex = 59;
             this.bttXoaLv.Text = "Xóa";
+            this.bttXoaLv.Click += new System.EventHandler(this.bttXoaLv_Click);
             // 
             // bttSuaLv
             // 
@@ -107,6 +119,7 @@
             this.bttSuaLv.Size = new System.Drawing.Size(117, 43);
             this.bttSuaLv.TabIndex = 58;
             this.bttSuaLv.Text = "Sửa";
+            this.bttSuaLv.Click += new System.EventHandler(this.bttSuaLv_Click);
             // 
             // bttThemLv
             // 
@@ -116,6 +129,7 @@
             this.bttThemLv.Size = new System.Drawing.Size(105, 43);
             this.bttThemLv.TabIndex = 57;
             this.bttThemLv.Text = "Thêm";
+            this.bttThemLv.Click += new System.EventHandler(this.bttThemLv_Click);
             // 
             // txtMoTaLevel
             // 
@@ -158,6 +172,7 @@
             // 
             this.gvLevel.GridControl = this.gcLevel;
             this.gvLevel.Name = "gvLevel";
+            this.gvLevel.Click += new System.EventHandler(this.gvLevel_Click);
             // 
             // frLevel
             // 
@@ -168,6 +183,7 @@
             this.Controls.Add(this.panelControl1);
             this.Name = "frLevel";
             this.Text = "Level";
+            this.Load += new System.EventHandler(this.frLevel_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
@@ -192,5 +208,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.TextEdit txtLevel;
         private DevExpress.XtraEditors.LabelControl labelControl3;
+        private DevExpress.XtraEditors.SimpleButton btnRefresh;
     }
 }

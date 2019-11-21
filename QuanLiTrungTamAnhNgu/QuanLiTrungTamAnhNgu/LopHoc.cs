@@ -28,11 +28,14 @@ namespace QuanLiTrungTamAnhNgu
         public decimal HocPhi { get; set; }
         public int ID_GV { get; set; }
         public int ID_KH { get; set; }
+        public int ID_Level { get; set; }
+        public int SoBuoiHoc { get; set; }
+        public string KhungGioHoc { get; set; }
     
         public virtual KhoaHoc KhoaHoc { get; set; }
+        public virtual Level Level { get; set; }
         public virtual NhanVien NhanVien { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PhieuThu> PhieuThus { get; set; }
-        public virtual ThoiGianLopHoc ThoiGianLopHoc { get; set; }
     }
 }

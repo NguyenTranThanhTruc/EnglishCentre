@@ -11,8 +11,7 @@ namespace QuanLiTrungTamAnhNgu
 {
     using System;
     using System.Collections.Generic;
-    using System.Data.Entity;
-
+    
     public partial class HocVien
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -34,6 +33,5 @@ namespace QuanLiTrungTamAnhNgu
         public virtual ICollection<PhieuThu> PhieuThus { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TaiKhoanHocVien> TaiKhoanHocViens { get; set; }
-        public EntityState State { get; internal set; }
     }
 }

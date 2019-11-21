@@ -17,10 +17,5 @@ namespace QuanLiTrungTamAnhNgu
         {
             InitializeComponent();
         }
-
-        private void panelControl3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }

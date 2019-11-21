@@ -156,7 +156,6 @@
             this.btnDangNhap.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDangNhap.ImageOptions.Image")));
             this.btnDangNhap.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnDangNhap.ImageOptions.LargeImage")));
             this.btnDangNhap.Name = "btnDangNhap";
-            this.btnDangNhap.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDangNhap_ItemClick);
             // 
             // bttDangKy
             // 
@@ -173,6 +172,7 @@
             this.bttDSHV.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bttDSHV.ImageOptions.Image")));
             this.bttDSHV.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bttDSHV.ImageOptions.LargeImage")));
             this.bttDSHV.Name = "bttDSHV";
+            this.bttDSHV.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bttDSHV_ItemClick);
             // 
             // barButtonItem3
             // 
@@ -194,6 +194,7 @@
             this.bttThoat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bttThoat.ImageOptions.Image")));
             this.bttThoat.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bttThoat.ImageOptions.LargeImage")));
             this.bttThoat.Name = "bttThoat";
+            this.bttThoat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bttThoat_ItemClick);
             // 
             // bttLopHoc
             // 
@@ -381,6 +382,7 @@
             this.Ribbon = this.ribbonControl;
             this.StatusBar = this.ribbonStatusBar;
             this.Text = "Quản lý trung tâm tiếng anh";
+            this.Load += new System.EventHandler(this.frMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.officeNavigationBar)).EndInit();

@@ -23,15 +23,11 @@ namespace QuanLiTrungTamAnhNgu
         }
     
         public int ID_KH { get; set; }
-        public string Ma_KH { get; set; }
         public string Ten_KH { get; set; }
-        public int SoBuoiHoc { get; set; }
         public string MoTa { get; set; }
-        public int ID_Level { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChuongTrinhKhuyenMai> ChuongTrinhKhuyenMais { get; set; }
-        public virtual Level Level { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LopHoc> LopHocs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

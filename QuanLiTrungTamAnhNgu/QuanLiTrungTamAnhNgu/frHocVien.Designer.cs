@@ -126,6 +126,9 @@
             // 
             this.hocVienBindingSource.DataMember = "HocVien";
             // 
+            // englishCenterDataSet
+            // 
+            // 
             // gvHocVien
             // 
             this.gvHocVien.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
@@ -404,6 +407,7 @@
             this.bttLHuy.Size = new System.Drawing.Size(94, 35);
             this.bttLHuy.TabIndex = 32;
             this.bttLHuy.Text = "Hủy";
+            this.bttLHuy.Click += new System.EventHandler(this.bttLHuy_Click);
             // 
             // bttXoaHV
             // 
@@ -522,6 +526,9 @@
             // 
             this.ribbonPage2.Name = "ribbonPage2";
             this.ribbonPage2.Text = "ribbonPage2";
+            // 
+            // hocVienTableAdapter
+            // 
             // 
             // frHocVien
             // 

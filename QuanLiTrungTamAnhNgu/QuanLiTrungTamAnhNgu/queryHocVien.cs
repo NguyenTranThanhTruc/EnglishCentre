@@ -9,7 +9,7 @@ namespace QuanLiTrungTamAnhNgu
 {
     class queryHocVien
     {
-        EnglishCenterEntities2 _db = new EnglishCenterEntities2();
+        EnglishCenterDbContext _db = new  EnglishCenterDbContext();
         public bool checkHocVien(string hoTen)
         {
             var query = (from item in _db.HocViens
@@ -26,13 +26,12 @@ namespace QuanLiTrungTamAnhNgu
 
         public void insertHocVien( string hoTen, DateTime ngaySinh , string diaChi, string email, string soDienThoai)
         {
-        //    var countHV = (from item in _db.HocViens
-        //                   select item).Count();
-        //    int id = Convert.ToInt32(countHV)+1;
-        //    string maHV = "HV" + id;
+            //var countHV = (from item in _db.HocViens
+            //               select item).Count();
+            //int id = Convert.ToInt32(countHV)+1;
+            //string maHV = "HV" + id;
             var hocVien = new HocVien
             {
-               
                 HoTen_HV = hoTen,
                 NgaySinh_HV = ngaySinh,
                 DiaChi_HV = diaChi,

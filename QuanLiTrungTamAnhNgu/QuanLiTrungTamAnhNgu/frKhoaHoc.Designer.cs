@@ -30,17 +30,18 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frKhoaHoc));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.bttLHuy = new DevExpress.XtraEditors.SimpleButton();
+            this.bttXoaKH = new DevExpress.XtraEditors.SimpleButton();
+            this.bttSuaKH = new DevExpress.XtraEditors.SimpleButton();
+            this.bttThemKH = new DevExpress.XtraEditors.SimpleButton();
+            this.txtMota = new System.Windows.Forms.TextBox();
             this.txtTenKhoaHoc = new DevExpress.XtraEditors.TextEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.label1 = new System.Windows.Forms.Label();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.gcKhoaHoc = new DevExpress.XtraGrid.GridControl();
             this.gvKhoaHoc = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.bttLHuy = new DevExpress.XtraEditors.SimpleButton();
-            this.bttXoaKH = new DevExpress.XtraEditors.SimpleButton();
-            this.bttSuaKH = new DevExpress.XtraEditors.SimpleButton();
-            this.bttThemKH = new DevExpress.XtraEditors.SimpleButton();
+            this.btnRefresh = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenKhoaHoc.Properties)).BeginInit();
@@ -50,11 +51,12 @@
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.btnRefresh);
             this.panelControl1.Controls.Add(this.bttLHuy);
             this.panelControl1.Controls.Add(this.bttXoaKH);
             this.panelControl1.Controls.Add(this.bttSuaKH);
             this.panelControl1.Controls.Add(this.bttThemKH);
-            this.panelControl1.Controls.Add(this.textBox1);
+            this.panelControl1.Controls.Add(this.txtMota);
             this.panelControl1.Controls.Add(this.txtTenKhoaHoc);
             this.panelControl1.Controls.Add(this.labelControl2);
             this.panelControl1.Controls.Add(this.label1);
@@ -64,6 +66,54 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(341, 406);
             this.panelControl1.TabIndex = 0;
+            // 
+            // bttLHuy
+            // 
+            this.bttLHuy.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bttLHuy.ImageOptions.Image")));
+            this.bttLHuy.Location = new System.Drawing.Point(118, 336);
+            this.bttLHuy.Name = "bttLHuy";
+            this.bttLHuy.Size = new System.Drawing.Size(94, 35);
+            this.bttLHuy.TabIndex = 51;
+            this.bttLHuy.Text = "Hủy";
+            this.bttLHuy.Click += new System.EventHandler(this.bttLHuy_Click);
+            // 
+            // bttXoaKH
+            // 
+            this.bttXoaKH.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bttXoaKH.ImageOptions.Image")));
+            this.bttXoaKH.Location = new System.Drawing.Point(218, 288);
+            this.bttXoaKH.Name = "bttXoaKH";
+            this.bttXoaKH.Size = new System.Drawing.Size(94, 29);
+            this.bttXoaKH.TabIndex = 50;
+            this.bttXoaKH.Text = "Xóa";
+            this.bttXoaKH.Click += new System.EventHandler(this.bttXoaKH_Click);
+            // 
+            // bttSuaKH
+            // 
+            this.bttSuaKH.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bttSuaKH.ImageOptions.Image")));
+            this.bttSuaKH.Location = new System.Drawing.Point(118, 288);
+            this.bttSuaKH.Name = "bttSuaKH";
+            this.bttSuaKH.Size = new System.Drawing.Size(94, 29);
+            this.bttSuaKH.TabIndex = 49;
+            this.bttSuaKH.Text = "Sửa";
+            this.bttSuaKH.Click += new System.EventHandler(this.bttSuaKH_Click);
+            // 
+            // bttThemKH
+            // 
+            this.bttThemKH.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bttThemKH.ImageOptions.Image")));
+            this.bttThemKH.Location = new System.Drawing.Point(8, 288);
+            this.bttThemKH.Name = "bttThemKH";
+            this.bttThemKH.Size = new System.Drawing.Size(94, 29);
+            this.bttThemKH.TabIndex = 48;
+            this.bttThemKH.Text = "Thêm";
+            this.bttThemKH.Click += new System.EventHandler(this.bttThemKH_Click);
+            // 
+            // txtMota
+            // 
+            this.txtMota.Location = new System.Drawing.Point(105, 109);
+            this.txtMota.Multiline = true;
+            this.txtMota.Name = "txtMota";
+            this.txtMota.Size = new System.Drawing.Size(209, 145);
+            this.txtMota.TabIndex = 46;
             // 
             // txtTenKhoaHoc
             // 
@@ -113,50 +163,17 @@
             this.gvKhoaHoc.GridControl = this.gcKhoaHoc;
             this.gvKhoaHoc.Name = "gvKhoaHoc";
             this.gvKhoaHoc.OptionsFind.AlwaysVisible = true;
+            this.gvKhoaHoc.Click += new System.EventHandler(this.gvKhoaHoc_Click);
             // 
-            // textBox1
+            // btnRefresh
             // 
-            this.textBox1.Location = new System.Drawing.Point(105, 109);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(209, 145);
-            this.textBox1.TabIndex = 46;
-            // 
-            // bttLHuy
-            // 
-            this.bttLHuy.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bttLHuy.ImageOptions.Image")));
-            this.bttLHuy.Location = new System.Drawing.Point(118, 336);
-            this.bttLHuy.Name = "bttLHuy";
-            this.bttLHuy.Size = new System.Drawing.Size(94, 35);
-            this.bttLHuy.TabIndex = 51;
-            this.bttLHuy.Text = "Hủy";
-            // 
-            // bttXoaKH
-            // 
-            this.bttXoaKH.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bttXoaLH.ImageOptions.Image")));
-            this.bttXoaKH.Location = new System.Drawing.Point(218, 288);
-            this.bttXoaKH.Name = "bttXoaKH";
-            this.bttXoaKH.Size = new System.Drawing.Size(94, 29);
-            this.bttXoaKH.TabIndex = 50;
-            this.bttXoaKH.Text = "Xóa";
-            // 
-            // bttSuaKH
-            // 
-            this.bttSuaKH.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bttSuaLH.ImageOptions.Image")));
-            this.bttSuaKH.Location = new System.Drawing.Point(118, 288);
-            this.bttSuaKH.Name = "bttSuaKH";
-            this.bttSuaKH.Size = new System.Drawing.Size(94, 29);
-            this.bttSuaKH.TabIndex = 49;
-            this.bttSuaKH.Text = "Sửa";
-            // 
-            // bttThemKH
-            // 
-            this.bttThemKH.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bttThemLH.ImageOptions.Image")));
-            this.bttThemKH.Location = new System.Drawing.Point(8, 288);
-            this.bttThemKH.Name = "bttThemKH";
-            this.bttThemKH.Size = new System.Drawing.Size(94, 29);
-            this.bttThemKH.TabIndex = 48;
-            this.bttThemKH.Text = "Thêm";
+            this.btnRefresh.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.btnRefresh.Location = new System.Drawing.Point(220, 336);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(94, 35);
+            this.btnRefresh.TabIndex = 52;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // frKhoaHoc
             // 
@@ -167,6 +184,7 @@
             this.Controls.Add(this.panelControl1);
             this.Name = "frKhoaHoc";
             this.Text = "Khóa học ";
+            this.Load += new System.EventHandler(this.frKhoaHoc_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
@@ -186,10 +204,11 @@
         private DevExpress.XtraEditors.TextEdit txtTenKhoaHoc;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtMota;
         private DevExpress.XtraEditors.SimpleButton bttLHuy;
         private DevExpress.XtraEditors.SimpleButton bttXoaKH;
         private DevExpress.XtraEditors.SimpleButton bttSuaKH;
         private DevExpress.XtraEditors.SimpleButton bttThemKH;
+        private DevExpress.XtraEditors.SimpleButton btnRefresh;
     }
 }
