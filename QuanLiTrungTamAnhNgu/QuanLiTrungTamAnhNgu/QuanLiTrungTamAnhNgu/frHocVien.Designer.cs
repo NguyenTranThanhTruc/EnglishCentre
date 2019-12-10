@@ -192,6 +192,7 @@
             this.btnRefresh.Size = new System.Drawing.Size(116, 38);
             this.btnRefresh.TabIndex = 51;
             this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // txtMaHV
             // 
@@ -226,6 +227,7 @@
             this.bttLHuy.Size = new System.Drawing.Size(85, 38);
             this.bttLHuy.TabIndex = 48;
             this.bttLHuy.Text = "Hủy";
+            this.bttLHuy.Click += new System.EventHandler(this.bttLHuy_Click);
             // 
             // bttXoaHV
             // 
@@ -240,6 +242,7 @@
             this.bttXoaHV.Size = new System.Drawing.Size(83, 38);
             this.bttXoaHV.TabIndex = 47;
             this.bttXoaHV.Text = "Xóa";
+            this.bttXoaHV.Click += new System.EventHandler(this.bttXoaHV_Click);
             // 
             // bttSuaHV
             // 
@@ -254,6 +257,7 @@
             this.bttSuaHV.Size = new System.Drawing.Size(80, 38);
             this.bttSuaHV.TabIndex = 46;
             this.bttSuaHV.Text = "Sửa";
+            this.bttSuaHV.Click += new System.EventHandler(this.bttSuaHV_Click);
             // 
             // bttThemHV
             // 
@@ -268,6 +272,7 @@
             this.bttThemHV.Size = new System.Drawing.Size(98, 38);
             this.bttThemHV.TabIndex = 45;
             this.bttThemHV.Text = "Thêm";
+            this.bttThemHV.Click += new System.EventHandler(this.bttThemHV_Click);
             // 
             // txtDiaChiHV
             // 
@@ -413,6 +418,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frHocVien";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Học Viên";
             this.Load += new System.EventHandler(this.frHocVien_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();

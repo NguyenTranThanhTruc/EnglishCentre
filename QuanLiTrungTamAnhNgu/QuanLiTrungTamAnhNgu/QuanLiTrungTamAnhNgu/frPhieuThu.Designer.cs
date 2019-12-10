@@ -179,6 +179,7 @@
             this.btnThanhToan.Size = new System.Drawing.Size(149, 38);
             this.btnThanhToan.TabIndex = 39;
             this.btnThanhToan.Text = "Thanh Toán";
+            this.btnThanhToan.Click += new System.EventHandler(this.btnThanhToan_Click);
             // 
             // txtPhuongThucThanhToan
             // 
@@ -241,6 +242,7 @@
             this.bttDangKy.Size = new System.Drawing.Size(135, 38);
             this.bttDangKy.TabIndex = 30;
             this.bttDangKy.Text = "Đăng Ký";
+            this.bttDangKy.Click += new System.EventHandler(this.bttDangKy_Click);
             // 
             // txtLopHoc
             // 
@@ -318,6 +320,7 @@
             this.btnRefreshnv.Size = new System.Drawing.Size(206, 37);
             this.btnRefreshnv.TabIndex = 17;
             this.btnRefreshnv.Text = "Refresh";
+            this.btnRefreshnv.Click += new System.EventHandler(this.btnRefreshnv_Click);
             // 
             // btnTimKiemPhieuThu
             // 
@@ -332,6 +335,7 @@
             this.btnTimKiemPhieuThu.Size = new System.Drawing.Size(132, 46);
             this.btnTimKiemPhieuThu.TabIndex = 18;
             this.btnTimKiemPhieuThu.Text = "Tìm Kiếm";
+            this.btnTimKiemPhieuThu.Click += new System.EventHandler(this.btnTimKiemPhieuThu_Click);
             // 
             // txtPhieuThu
             // 
@@ -401,9 +405,10 @@
             this.btnRefreshv.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnRefreshv.ImageOptions.Image")));
             this.btnRefreshv.Location = new System.Drawing.Point(170, 50);
             this.btnRefreshv.Name = "btnRefreshv";
-            this.btnRefreshv.Size = new System.Drawing.Size(150, 38);
+            this.btnRefreshv.Size = new System.Drawing.Size(105, 38);
             this.btnRefreshv.TabIndex = 16;
             this.btnRefreshv.Text = "Refresh";
+            this.btnRefreshv.Click += new System.EventHandler(this.btnRefreshv_Click);
             // 
             // btnTimKiemHocVIen
             // 
@@ -418,6 +423,7 @@
             this.btnTimKiemHocVIen.Size = new System.Drawing.Size(132, 46);
             this.btnTimKiemHocVIen.TabIndex = 15;
             this.btnTimKiemHocVIen.Text = "Tìm Kiếm";
+            this.btnTimKiemHocVIen.Click += new System.EventHandler(this.btnTimKiemHocVIen_Click);
             // 
             // txtTimTen
             // 
