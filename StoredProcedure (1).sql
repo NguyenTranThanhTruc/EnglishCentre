@@ -1,6 +1,6 @@
 ﻿use EnglishCenter;
 go
---1.Thêm level
+--2.Thêm level
 use EnglishCenter;
 
 IF OBJECT_ID('sp_ThemLevel') IS NOT NULL
@@ -32,7 +32,7 @@ end
 go
 
 
---2.Sửa thông tin level
+--4.Sửa thông tin level
 IF OBJECT_ID('sp_SuaLevel') IS NOT NULL
 DROP proc  sp_SuaLevel
 go
@@ -55,7 +55,7 @@ begin
 			end catch
 end
 go
---3.List level
+--6.List level
 IF OBJECT_ID('fn_LoadLevel') IS NOT NULL
 DROP function  fn_LoadLevel
 go
@@ -66,7 +66,7 @@ as
 return(	select * from Levels
 	where Levels.TrangThai like '1')
 go
---4.Xóa Level
+--7.Xóa Level
 IF OBJECT_ID('sp_XoaLevel') IS NOT NULL
 DROP proc  sp_XoaLevel
 go
@@ -78,7 +78,7 @@ as
 	where Levels.LevelsId=@idlv;
 go
 
---5.Thêm Nhân Viên
+--8.Thêm Nhân Viên
 IF OBJECT_ID('sp_ThemNhanVien') IS NOT NULL
 DROP proc  sp_ThemNhanVien
 go
@@ -111,7 +111,7 @@ end
 go
 
 select * from NhanVien_audits
---6.Sửa Nhân Viên
+--9.Sửa Nhân Viên
 IF OBJECT_ID('sp_SuaNhanVien') IS NOT NULL
 DROP proc  sp_SuaNhanVien
 go
@@ -140,7 +140,7 @@ as
 end
 go
 
---7.Xóa Nhân Viên
+--10.Xóa Nhân Viên
 IF OBJECT_ID('sp_XoaNhanVien') IS NOT NULL
 DROP proc  sp_XoaNhanVien
 go
@@ -520,7 +520,7 @@ go
 
 
 
---30. list lưu lại lịch sử update của nhân viên
+--33. list lưu lại lịch sử update của nhân viên
 --Tạo bảng lưu những thay đổi trên bảng nhân viên	
 use EnglishCenter;
 go
@@ -592,7 +592,50 @@ end
 go
 
 
---31.Them phieu thu
+  --Đặt điều kiện lớp không được > 20 học viên
+use EnglishCenter;
+go
+if OBJECT_ID('tr_soHv') is not null
+	drop trigger tr_soHv;
+go
+create trigger tr_SoHv 
+on LopHoc for insert
+ as
+ declare @soluong int;
+ select @soluong = count(*) from PhieuThu p join LopHoc l
+ on p.LopHocId = l.LopHocId
+ if @soluong > 20
+ begin 
+	rollback transaction
+end 
+return 
+go
+--create a view 
+use EnglishCenter;
+go
+if OBJECT_ID('dsLop') is not null
+drop view dsLop;
+go
+create view dsLop
+as 
+select Ma_LH, Ten_LH, ThoiGianBatDau_LH, ThoiGianKetThuc_LH, HocPhi, SoBuoiHoc,KhungGioHoc
+from LopHoc l join KhoaHoc k on l.KhoaHocId = k.KhoaHocId
+go
+
+use EnglishCenter;
+go
+if OBJECT_ID('dsHocVien') is not null
+drop view dsHocVien;
+go
+create view dsHocVien 
+
+as
+select h.Ma_HV, h.HoTen_HV, h.SDT_HV
+from  HocVien h join PhieuThu p
+on h.HocVienId = p.HocVienId and p.LopHocId = (select LopHocId from LopHoc where Ma_LH='LH_1')
+go
+
+--Them phieu thu
 use EnglishCenter;
 
 IF OBJECT_ID('sp_ThemPhieuThu') IS NOT NULL
@@ -622,7 +665,7 @@ as
 end
 go
 
---32.Them tai khoan gv
+--Them tai khoan gv
 use EnglishCenter;
 go
 if OBJECT_ID('tr_ThemTaiKhoanGV') is not null
@@ -634,7 +677,7 @@ on NhanVien
 after insert, update
 as
 	if(exists(select * from TaikhoanGiaoVien 
-	join inserted on TaikhoanGiaoVien.NhanVienId = TaikhoanGiaoVien.NhanVienId
+	join inserted on TaikhoanGiaoVien.NhanVienId = inserted.NhanVienId
 	 ))
 		 update TaikhoanGiaoVien 
 		 set Username=NhanVien.HoTen_NV, ChucVu= NhanVien.ChucVu,PassWords=NhanVien.SDT_NV, PhanQuyenId= PhanQuyen.PhanQuyenId
@@ -647,7 +690,7 @@ as
 		where NhanVienId = inserted.NhanVienId;	
 go	
 exec dbo.sp_SuaNhanVien  14,N'NV_16',N'Trần Phước Tài',N'Giáo Viên',N'ewiiẻtregr',N'123456',N'754561254',N'1994-09-26 21:32:13.000';
- --33.Xoa TKNV
+ --Xoa TKNV
 use EnglishCenter;
 go
 if OBJECT_ID('tr_XoaTaiKhoanGV') is not null
@@ -668,7 +711,7 @@ go
 exec dbo.sp_XoaNhanVien 13
 
 
---34.Tai khoan hoc vien
+--Tai khoan hoc vien
 use EnglishCenter;
 go
 if OBJECT_ID('tr_ThemTaiKhoanHV') is not null
@@ -685,7 +728,7 @@ as
 	where HocVienId = inserted.HocVienId
 go
 	
- --35.Xoa TKNV
+ --Xoa TKNV
 use EnglishCenter;
 go
 if OBJECT_ID('tr_XoaTaiKhoanHV') is not null
@@ -703,6 +746,7 @@ begin
 end
 go
 exec dbo.sp_XoaHocVien 1007;
+--Dang nhap user 
 
 			
 --du lieu nam o cay clusterd, uu tien cho cai quan trong nhat
@@ -714,7 +758,7 @@ alter table TaikhoanGiaoVien
 add constraint fk_PQ_GV
 foreign key (PhanQuyenId)
 references PhanQuyen(PhanQuyenId)
---36.Kiểm tra tai khoản nhân viên 
+--Kiểm tra tai khoản nhân viên 
 use EnglishCenter
 go
 
@@ -738,7 +782,7 @@ end
 go
 
 
---37.Kiểm tra tai khoản học viên 
+--Kiểm tra tai khoản học viên 
 use EnglishCenter
 go
 
@@ -765,7 +809,7 @@ exec  dbo.sp_KiemTraTaiKhoanNV @id output,@innv output,'Admin','123456789', 'Adm
 print @id
 print @innv
 
---38.Lấy danh sách lớp học theo khoa học
+--Lấy danh sách lớp học theo khoa học
 use EnglishCenter;
 
 IF OBJECT_ID('fn_ListLopHocTheoKhoaHoc') IS NOT NULL
@@ -787,7 +831,7 @@ LopHoc.ThoiGianBatDau_LH,LopHoc.ThoiGianKetThuc_LH
 where LopHoc.TrangThai like '1' and KhoaHoc.KhoaHocId=@idkh)
 go
 
---39.Lấy danh sách học viên của lớp học
+--Lấy danh sách học viên của lớp học
 use EnglishCenter;
 
 IF OBJECT_ID('fn_ListHocVienCuaLopHoc') IS NOT NULL
@@ -804,7 +848,7 @@ return (select s.Ma_HV, s.HoTen_HV,s.DiaChi_HV,s.Email_HV,s.SDT_HV from HocVien 
 		where p.LopHocId=@idlh and s.TrangThai like '1')
 go
 
---40.lấy danh sách phiếu thu 
+--lấy danh sách phiếu thu 
 
 use EnglishCenter;
 
@@ -823,7 +867,7 @@ return (select p.PhieuThuId, s.Ma_HV, s.HoTen_HV, NhanVien.HoTen_NV, p.SoTien,p.
 		where p.LopHocId=@idlh and s.TrangThai like '1')
 go
 
---41.cập nhật phiếu thu
+--cập nhật phiếu thu
 use EnglishCenter;
 
 IF OBJECT_ID('sp_CapNhatPhieuThu') IS NOT NULL
@@ -854,7 +898,7 @@ as
 			end catch		
 end
 go
---42.tìm tên học viên trên phiếu thu
+--tìm tên học viên trên phiếu thu
 use EnglishCenter;
 
 IF OBJECT_ID('fn_TimTenTrenPhieuThu') IS NOT NULL
@@ -874,3 +918,4 @@ return (select p.PhieuThuId, s.Ma_HV, s.HoTen_HV, NhanVien.HoTen_NV, p.SoTien,p.
 go
 
 
+--Sắp xếp tên admin
