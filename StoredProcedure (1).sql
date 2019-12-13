@@ -17,7 +17,7 @@ begin
 				where (Ma_Level= @malv) or (Ten_Level like @tenlv)and TrangThai like '1'))
 				return -1;
 	else
-		begin tran ;
+		begin tran ;							
 			begin try 
 				set identity_insert Levels off;
 				insert into Levels(Ma_Level,Ten_Level,MoTa,TrangThai)
